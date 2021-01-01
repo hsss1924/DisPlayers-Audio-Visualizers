@@ -22,8 +22,9 @@
     [(UIColor *)self.backgroundColor set];
     UIRectFill(frame);
     
-    CGFloat columnWidth = (rect.size.width / 2) / (self.equalizerSettings.numOfBins - 1);
-    
+//    CGFloat columnWidth = (rect.size.width / 2) / (self.equalizerSettings.numOfBins - 1);
+    CGFloat columnWidth = (rect.size.width /5*3) / (self.equalizerSettings.numOfBins - 1);
+
     CGFloat actualWidth = MAX(1, columnWidth * (1 - 2 * self.equalizerSettings.padding));
     CGFloat actualPadding = MAX(0, (columnWidth - actualWidth) / 2);
     
@@ -53,8 +54,9 @@
     UIBezierPath *linePath = [UIBezierPath bezierPath];
     
         linePath.lineWidth = 2.0;
-        self.flagWidth = CGRectGetWidth(rect) / 2 + actualPadding;
-        [linePath moveToPoint: CGPointMake(CGRectGetWidth(rect) / 2 + actualPadding, CGRectGetHeight(rect) / 2)];
+        self.flagWidth = CGRectGetWidth(rect) /5*3;
+//        [linePath moveToPoint: CGPointMake(CGRectGetWidth(rect) / 2 + actualPadding, CGRectGetHeight(rect) / 2)];
+        [linePath moveToPoint: CGPointMake(CGRectGetWidth(rect) /5*3 + 2.5, CGRectGetHeight(rect) / 2)];
         [linePath addLineToPoint: CGPointMake(CGRectGetWidth(rect), CGRectGetHeight(rect) / 2)];
         [linePath stroke];
     
