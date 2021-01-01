@@ -30,8 +30,10 @@
     for (NSUInteger i = 0; i < self.equalizerSettings.numOfBins; i++) {
         CGFloat columnHeight = [[self.audioService timeHeights][i] floatValue] / 2;
         
-        if (columnHeight <= 0)
-            continue;
+        if (columnHeight <= 0){
+            columnHeight = 1;
+        }
+//            continue;
         CGFloat columnX = i * columnWidth;
         
         UIBezierPath *rollingPath = [[UIBezierPath alloc] init];
@@ -51,6 +53,7 @@
     UIBezierPath *linePath = [UIBezierPath bezierPath];
     
         linePath.lineWidth = 2.0;
+        self.flagWidth = CGRectGetWidth(rect) / 2 + actualPadding;
         [linePath moveToPoint: CGPointMake(CGRectGetWidth(rect) / 2 + actualPadding, CGRectGetHeight(rect) / 2)];
         [linePath addLineToPoint: CGPointMake(CGRectGetWidth(rect), CGRectGetHeight(rect) / 2)];
         [linePath stroke];

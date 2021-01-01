@@ -10,5 +10,6 @@
 #import "DPMainEqualizerView.h"
 
 @interface DPRollingEqualizerView : DPMainEqualizerView
+@property(nonatomic,assign)CGFloat flagWidth;/**<  */
 
 @end
